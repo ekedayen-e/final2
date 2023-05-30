@@ -15,9 +15,6 @@ function Navbar() {
           <Link to="/find">Find</Link>
         </li>
         <li>
-          <Link to="/edit">Edit</Link>
-        </li>
-        <li>
           <Link to="/del">Delete</Link>
         </li>
       </ul>

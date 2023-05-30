@@ -5,6 +5,7 @@ import Layout from './pages/Layout'
 import Find from './pages/Find'
 import Home from './pages/Home'
 import Add from './pages/Add'
+import Delete from './pages/Delete'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="add" element={<Add />} />
           <Route path="find"element={<Find />} />
+          <Route path="del"element={<Delete />} />
         </Route>
       </Routes>
     </BrowserRouter>

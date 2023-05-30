@@ -16,6 +16,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
 router.post('/', (req, res, next) => {
     if(req.body) {
         Entry.create(req.body)

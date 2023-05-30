@@ -29,13 +29,13 @@ function Book() {
     }
 
     const onSubmit = () => {
-        setStatus(`Your entry for ${data.first_name} has been submitted!`)
         const en = {
             ...data
         }
         axios.post('/api/entries', en)
         .then((res) => {
                 getEntries();
+                setStatus(`Your entry for ${data.first_name} has been submitted!`)
                 setData(init);
         }).catch((err) => console.log(err))
     }
@@ -48,7 +48,7 @@ function Book() {
     <div>
     <form>
     <fieldset>
-    <legend>Customer Information</legend>
+    <legend>Client Information</legend>
     <label for="fname"> Enter First Name: </label>
     <input required placeholder="John" type="text" id="fname" value={data.first_name} onChange={(e) => handleChange(e, "first_name")}/>
     <label for="lname"> Enter Last Name: </label>
@@ -59,18 +59,6 @@ function Book() {
     </fieldset>
     </form>
     <p>{status}</p>
-   {/* 
-   <ul>
-    {entries.map((entry) => {
-        return(
-        <li key={entry._id}>
-        <p>{entry.first_name} {entry.last_name} : {entry.phone_number}</p>
-        </li>
-        )
-    }
-    )}
-    </ul>
-    */}
     </div>
   )
 }
