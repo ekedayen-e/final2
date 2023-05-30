@@ -14,9 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="add" element={<Add />} />
-          <Route path="find"element={<Find />} />
-          <Route path="del"element={<Delete />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/find"element={<Find />} />
+          <Route path="/del"element={<Delete />} />
         </Route>
       </Routes>
     </BrowserRouter>
