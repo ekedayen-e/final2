@@ -29,13 +29,13 @@ function Book() {
     }
 
     const onSubmit = () => {
+        setStatus(`Your entry for ${data.first_name} has been submitted!`)
         const en = {
             ...data
         }
         axios.post('/api/entries', en)
         .then((res) => {
                 getEntries();
-                setStatus(`Your entry for ${data.first_name} has been submitted!`)
                 setData(init);
         }).catch((err) => console.log(err))
     }
