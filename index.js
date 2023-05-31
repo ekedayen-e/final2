@@ -19,12 +19,21 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use("/api/entries", routes)
 
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+/*if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
     });
    }
+*/
+
+   app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
 
 app.use((err, req, res, next) => {
     console.log(err);
