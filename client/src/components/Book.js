@@ -29,7 +29,6 @@ function Book() {
     }
 
     const onSubmit = () => {
-        setStatus(`Your entry for ${data.first_name} has been submitted!`)
         const en = {
             ...data
         }

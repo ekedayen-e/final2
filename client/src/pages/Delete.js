@@ -21,20 +21,17 @@ function Delete() {
     }
 
     const onSubmit = () => {
-        console.log(num)
         for(let i = 0; i < entries.length; i++) {
             if(String(entries[i].phone_number) == String(num)) {
                 axios.delete(`/api/entries/${entries[i]._id}`)
                 .then((res) => {
+                    setNum('')
                     console.log("Deleted entry")
-                    setStatus(`User: ${entries[i].first_name} ${entries[i].last_name} deleted.`)
                 })
                 .catch((err) => console.error(err))
                 return;
             }
         }
-        setStatus("Phone number not saved")
-        return;
     }
 
     useEffect(() => {
