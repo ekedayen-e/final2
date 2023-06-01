@@ -4,6 +4,7 @@ const bodyParser= require('body-parser')
 const mongoose = require('mongoose')
 const routes = require("./routes/api")
 require('dotenv').config({path:"./config.env"})
+const path = require('path')
 let app = express()
 const port = process.env.PORT || 3001
 
