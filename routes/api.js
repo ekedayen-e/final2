@@ -1,5 +1,5 @@
 const express = require('express');
-const { isObjectIdOrHexString } = require('mongoose');
+const { isObjectIdOrHexString, default: mongoose } = require('mongoose');
 const router = express.Router();
 const ObjectId = require('mongodb').ObjectId
 const Entry = require("../models/model")
@@ -9,12 +9,10 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res) => {
-    let query = { _id: ObjectId(req.params.id) };
-    Entry.findOne(query, (err, result) => {
-        if (err) throw err;
-        res.json(result);
-    });
-});
+    Entry.find({ id: mongoose.ObjectId(req.params.id)})
+    .then((result) => res.json(result))
+    .catch(next);
+})
 
 
 router.post('/', (req, res, next) => {
