@@ -17,6 +17,7 @@ function App() {
           <Route path="add" element={<Add />} />
           <Route path="find"element={<Find />} />
           <Route path="del"element={<Delete />} />
+          <Route path="sup"element={<h1>HELLO WORLD</h1>} />
         </Route>
       </Routes>
     </BrowserRouter>
