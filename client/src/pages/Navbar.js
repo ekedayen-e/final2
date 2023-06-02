@@ -17,7 +17,14 @@ const Sli = styled.li
 float: left;
 `;
 
-const Slink = styled.link
+const SLink = styled(Link)
+`
+text-decoration: none;
+
+&:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+} 
+`;
 
 const Sa = styled.a
 `
@@ -33,16 +40,16 @@ function Navbar() {
     <nav>
       <Sul>
         <Sli>
-          <Link to="/"><Sa>Home</Sa></Link>
+          <SLink to="/"><Sa>Home</Sa></SLink>
         </Sli>
         <Sli>
-        <Link to="/add"><Sa>Add</Sa></Link>
+        <SLink to="/add"><Sa>Add</Sa></SLink>
         </Sli>
         <Sli>
-        <Link to="/find"><Sa>Find</Sa></Link>
+        <SLink to="/find"><Sa>Find</Sa></SLink>
         </Sli>
         <Sli>
-        <Link to="/del"><Sa>Delete</Sa></Link>
+        <SLink to="/del"><Sa>Delete</Sa></SLink>
         </Sli>
       </Sul>
     </nav>
