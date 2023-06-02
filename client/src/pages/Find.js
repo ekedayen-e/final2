@@ -1,10 +1,44 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import styled from "styled-components"
+
+const StyledContainer = styled.section
+`
+  font-family: Tahoma;
+  
+`;
+
+const StyledTable = styled.table
+`
+border: 1px solid;
+border-collapse: collapse;
+margin: 0 auto;
+width: 100%;
+`;
+
+const StyledHead = styled.th
+`
+border: 1px solid;
+padding: 15px;
+`;
+
+const StyledData = styled.td
+`
+border: 1px solid;
+text-align: center;
+verrtical-aign: middle;
+padding: 15px;
+`;
+
 const init = {
     "first_name": '',
     "last_name": '',
     "phone_number": ''
 }
+
+
+
+
 
 function Find() {
     const[data, setData] = useState(init)
@@ -55,6 +89,7 @@ function Find() {
         .then((res) => {
             if(res.data) {
                 setEntries(res.data)
+                setLs(res.data)
             }
         }).catch((err) => console.log(err))
     }
@@ -63,7 +98,7 @@ function Find() {
         getEntries();
     }, [])
   return (
-    <div>
+    <StyledContainer>
     <h1>Find Entry</h1>
     <p>Enter the any info for the entry you wanna find!</p>
     <br />
@@ -74,17 +109,26 @@ function Find() {
     <label for="pn">Search By Phone Number: </label>
     <input placeholder="12345679" id="pn" value={data.phone_name} onChange={(e) => handleChange(e, "phone_number")}></input>
     <button onClick={filter}>Search</button>
-    <ul>
+    <br></br>
+    <br></br>
+    <StyledTable>
+    <tr>
+    <StyledHead>First Name</StyledHead>
+    <StyledHead>Last Name</StyledHead>
+    <StyledHead>Phone Number</StyledHead>
+    </tr>
     {ls.map((entry) => {
         return(
-        <li key={entry._id}>
-        <p>{entry.first_name} {entry.last_name} : {entry.phone_number}</p>
-        </li>
+        <tr key={entry._id}>
+        <StyledData>{entry.first_name}</StyledData> 
+        <StyledData>{entry.last_name}</StyledData>
+        <StyledData>{entry.phone_number}</StyledData>
+        </tr>
         )
     }
     )}
-    </ul>
-    </div>
+    </StyledTable>
+    </StyledContainer>
   )
 }
 

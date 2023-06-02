@@ -7,9 +7,24 @@ import Home from './pages/Home'
 import Add from './pages/Add'
 import Delete from './pages/Delete'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import styled from "styled-components"
+
+const StyledContainer = styled.section
+`
+background-color:grey;
+width: 100vw;
+height: 100vh;
+margin: 0px;
+position: absolute;
+top: 0px;
+right: 0px;
+bottom:0px;
+left: 0px;
+`;
 
 function App() {
   return (
+    <StyledContainer>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -20,6 +35,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </StyledContainer>
   );
 }
 

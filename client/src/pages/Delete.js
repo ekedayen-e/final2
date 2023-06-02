@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import styled from "styled-components"
 
+const StyledContainer = styled.section
+`
+  font-family: Tahoma;
+  
+`;
 
 function Delete() {
     const [num, setNum] = useState('');
@@ -42,7 +48,7 @@ function Delete() {
     }, [])
     
   return (
-    <div>
+    <StyledContainer>
     <h1>Delete Entry</h1>
     <p>Enter the phone number of the entry you want to delete below.</p>
     <form>
@@ -54,7 +60,7 @@ function Delete() {
     </fieldset>
     </form>
     <p>{status}</p>
-    </div>
+    </StyledContainer>
   )
 }
 
