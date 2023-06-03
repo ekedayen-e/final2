@@ -54,7 +54,7 @@ function Book() {
     <label for="lname"> Enter Last Name: </label>
     <input required placeholder="Doe" type="text" id="lname" value={data.last_name} onChange={(e) => handleChange(e, "last_name")}/>
     <label for="num"> Enter Phone Number: </label>
-    <input required placeholder="123456789" type="tel" id="num" value={data.phone_number} onChange={(e) => handleChange(e, "phone_number")}/>
+    <input required placeholder="123456789" type="text" id="num" value={data.phone_number} onChange={(e) => handleChange(e, "phone_number")}/>
     <button onClick={onSubmit}>Submit</button>
     </fieldset>
     </form>
